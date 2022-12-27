@@ -3,9 +3,9 @@ from tkinter import ttk
 import tkinter .font as f
 from tkinter import filedialog
 
-import json
 import os
 import subprocess
+import json
 
 root = tkinter.Tk()
 root.title("Aviutl Auto Setup")
@@ -164,43 +164,80 @@ def Select_Setup_folder_path():
         pass
 
 def Execute():
+
     path = Setup_folder_path_textbox.get()
+
     if path =="":
         tkinter.messagebox.showerror("エラー", "構築先を選択してください。")
     else:
         if os.path.exists("Cache") == True:
-            tkinter.messagebox.showerror("エラー", "一時フォルダがすでに存在します")
-            return
+            Cache_Check = tkinter.messagebox.askquestion(
+                "エラー",
+                "一時フォルダ\"Cache\"がすでに存在します。\n 削除してもよろしいですか？"
+            )
+            if Cache_Check == "yes":
+                subprocess.run("rd /S /Q Cache",shell=True)
+            else:
+                tkinter.messagebox.showerror("エラー","処理を継続できません")
+                return
         else:
-            subprocess.run("mkdir Cache",shell=True)
+            pass
+
+        subprocess.run("mkdir Cache",shell=True)
+
+        Load_json = json.load(open("DownloadLinks.json","r"))
 
         if Aviutl_exe_ckb.get() == True:
-            try:
-                print("Downloading...")
-                subprocess.run(
-                    "powershell -Command \"(New-Object Net.WebClient).DownloadFile('http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip', 'Cache\\Aviutl110.zip')\"",
-                    shell=True
-                )
 
-                print("Unzip...")
-                subprocess.run(
-                    "powershell -command \"Expand-Archive Cache\\Aviutl110.zip Cache\\Aviutl110\"",
-                    shell=True)
+            print("Downloading Aviutl...")
+            subprocess.run(
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile('http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip', 'Cache\\Aviutl110.zip')\"",
+                shell=True
+            )
 
-                print("Moving...")
-                subprocess.run(
-                    "move /Y Cache\\aviutl110\\* " + path,
-                    shell=True
-                )
-                if os.path.exists(path+"Aviutl.exe") == True:
-                    pass
-                else:
-                    tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
-                    return
+            print("Unzip Aviutl.zip...")
+            subprocess.run(
+                "powershell -command \"Expand-Archive Cache\\Aviutl110.zip Cache\\Aviutl110\"",
+                shell=True
+            )
 
-            except:
-                print("Filled")
+            print("Moving Aviutl.exe...")
+            subprocess.run(
+                "move /Y Cache\\aviutl110\\* " + path,
+                shell=True
+            )
+            if os.path.exists(path+"Aviutl.exe") == True:
+                print("Aviutl.exe Check OK")
+            else:
+                tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
+                return
 
+        else:
+            print("NOT Check")
+
+        if Extend_Editor_ckb.get() == True:
+            print("Downloading Extend_Editor...")
+            subprocess.run(
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile('http://spring-fragrance.mints.ne.jp/aviutl/exedit92.zip', 'Cache\\exedit92.zip')\"",
+                shell=True
+            )
+
+            print("Unzip exedit92.zip...")
+            subprocess.run(
+                "powershell -command \"Expand-Archive Cache\\exedit92.zip Cache\\exedit92\"",
+                shell=True
+            )
+
+            print("Moving exedit92...")
+            subprocess.run(
+                "move /Y Cache\\exedit92\\* " + path,
+                shell=True
+            )
+            if os.path.exists(path+"exedit.auf") == True:
+                print("exedit.auf Check OK")
+            else:
+                tkinter.messagebox.showerror("エラー","拡張編集プラグインの取得に失敗しました")
+                return
         else:
             print("NOT Check")
 
