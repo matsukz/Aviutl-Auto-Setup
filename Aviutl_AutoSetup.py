@@ -24,6 +24,17 @@ Select_version_lavel.place(x=10,y=10)
 
 Aviutl_exe_ckb = tkinter.BooleanVar()
 Aviutl_exe_ckb.set(True)
+Aviutl_exe_checkbox = tkinter.Checkbutton(
+    root,
+    variable=Aviutl_exe_ckb
+)
+Aviutl_exe_checkbox.place(x=30,y=50)
+
+Aviutl_exe_checkbox = tkinter.Checkbutton(
+    root,
+    variable=Aviutl_exe_ckb
+)
+Aviutl_exe_checkbox.place(x=30,y=50)
 
 Aviutl_exe_List = (
     "Aviutl Version1.10",
@@ -42,6 +53,11 @@ Aviutl_exe_Combobox.place(x=60,y=50)
 
 Extend_Editor_ckb = tkinter.BooleanVar()
 Extend_Editor_ckb.set(True)
+Extend_Editor_checkbox = tkinter.Checkbutton(
+    root,
+    variable=Extend_Editor_ckb
+)
+Extend_Editor_checkbox.place(x=30,y=80)
 
 Extend_Editor_List = (
     "拡張編集プラグイン Version0.92",
@@ -60,6 +76,11 @@ Extend_Editor_Combbox.place(x=60,y=80)
 
 LSMASH_ckb = tkinter.BooleanVar()
 LSMASH_ckb.set(True)
+LSMASH_checkbox = tkinter.Checkbutton(
+    root,
+    variable=LSMASH_ckb,
+)
+LSMASH_checkbox.place(x=30,y=110)
 
 LSMASH_List = (
     "L-SMASH-Works_Rev1100",
@@ -78,6 +99,11 @@ LSMASH_combobox.place(x=60,y=110)
 
 Encoder_ckb = tkinter.BooleanVar()
 Encoder_ckb.set(True)
+Encoder_checkbox = tkinter.Checkbutton(
+    root,
+    variable=Encoder_ckb
+)
+Encoder_checkbox.place(x=30,y=140)
 
 Encoder_List = (
     "X264guiEx",
@@ -120,10 +146,10 @@ Setup_folder_path_textbox.place(
     height=30
 )
 
-def Setup_folder_path():
-    Setup_folder_path_tmp = (filedialog.askdirectory())
+def Select_Setup_folder_path():
+    Setup_folder_path = (filedialog.askdirectory())
 
-    if not Setup_folder_path_tmp == "":
+    if not Setup_folder_path == "":
 
         if not Setup_folder_path_textbox.get() == "":
             Setup_folder_path_textbox.delete("0","end")
@@ -132,7 +158,7 @@ def Setup_folder_path():
 
         Setup_folder_path_textbox.insert(
             0,
-            Setup_folder_path_tmp.replace("/","\\") + "\\"
+            Setup_folder_path.replace("/","\\") + "\\"
         )
     else:
         pass
@@ -177,35 +203,12 @@ def Execute():
 
         else:
             print("NOT Check")
-            
-Aviutl_exe_checkbox = tkinter.Checkbutton(
-    root,
-    variable=Aviutl_exe_ckb
-)
-Aviutl_exe_checkbox.place(x=30,y=50)
 
-Extend_Editor_checkbox = tkinter.Checkbutton(
-    root,
-    variable=Extend_Editor_ckb
-)
-Extend_Editor_checkbox.place(x=30,y=80)
-
-LSMASH_checkbox = tkinter.Checkbutton(
-    root,
-    variable=LSMASH_ckb,
-)
-LSMASH_checkbox.place(x=30,y=110)
-
-Encoder_checkbox = tkinter.Checkbutton(
-    root,
-    variable=Encoder_ckb
-)
-Encoder_checkbox.place(x=30,y=140)
 
 Setup_folder_path_button = tkinter.Button(
     root,
     text="参照",
-    command=Setup_folder_path,
+    command=Select_Setup_folder_path,
     width=6,
     height=2
 )
