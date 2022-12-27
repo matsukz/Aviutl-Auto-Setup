@@ -6,6 +6,7 @@ from tkinter import filedialog
 import os
 import subprocess
 import json
+import time
 
 root = tkinter.Tk()
 root.title("Aviutl Auto Setup")
@@ -185,13 +186,18 @@ def Execute():
 
         subprocess.run("mkdir Cache",shell=True)
 
-        Load_json = json.load(open("DownloadLinks.json","r"))
+        if os.path.exists(path + "Plugins") == False:
+            subprocess.run("mkdir " + path + "Plugins",shell=True)
+        else:
+            pass
+
+        open_json = json.load(open("DownloadLinks.json","r"))
 
         if Aviutl_exe_ckb.get() == True:
 
             print("Downloading Aviutl...")
             subprocess.run(
-                "powershell -Command \"(New-Object Net.WebClient).DownloadFile('http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip', 'Cache\\Aviutl110.zip')\"",
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + open_json["Aviutlexe"]["URL"] + "\', 'Cache\\Aviutl110.zip')\"",
                 shell=True
             )
 
@@ -218,7 +224,7 @@ def Execute():
         if Extend_Editor_ckb.get() == True:
             print("Downloading Extend_Editor...")
             subprocess.run(
-                "powershell -Command \"(New-Object Net.WebClient).DownloadFile('http://spring-fragrance.mints.ne.jp/aviutl/exedit92.zip', 'Cache\\exedit92.zip')\"",
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + open_json["ExtendEditor"]["URL"] + "\', 'Cache\\exedit92.zip')\"",
                 shell=True
             )
 
@@ -241,6 +247,42 @@ def Execute():
         else:
             print("NOT Check")
 
+        if LSMASH_ckb.get() == True:
+            print("Downloading L-SMASH...")
+            subprocess.run(
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + open_json["L-SMASH"]["URL"] + "\', 'Cache\\L-SMASH-Works.zip')\"",  
+                shell=True 
+            )
+
+            print("Unzip L-SMASH...")
+            subprocess.run(
+                "powershell -command \"Expand-Archive Cache\\L-SMASH-Works.zip Cache\\L-SMASH-Works\"",
+                shell=True
+            )
+
+            print("Moving L-SMASH...")
+            plugins_path = path + "Plugins\\"
+            subprocess.run(
+                "move /Y Cache\\L-SMASH-Works\\*.auf " + plugins_path,
+                shell=True
+            )
+            subprocess.run(
+                "move /Y Cache\\L-SMASH-Works\\lwcolor.auc " + plugins_path,
+                shell=True
+            )
+            subprocess.run(
+                "move /Y Cache\\L-SMASH-Works\\lwinput.aui " + plugins_path,
+                shell=True
+            )
+
+            if os.path.exists(plugins_path+"lwinput.aui") == True:
+                print("lwinput.aui check OK")
+            else:
+                tkinter.messagebox.showerror("エラー","L-SMASH-Worksの取得に失敗しました")
+                return
+        else:
+            print("NOT Check")
+
 
 Setup_folder_path_button = tkinter.Button(
     root,
@@ -259,4 +301,5 @@ Exceute_button = tkinter.Button(
     height=3
 )
 Exceute_button.place(x=60,y=250)
+
 root.mainloop()
