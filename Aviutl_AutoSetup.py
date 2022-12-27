@@ -120,8 +120,6 @@ Setup_folder_path_textbox.place(
 )
 
 def Setup_folder_path():
-    global Setup_folder_path_textbox
-
     Setup_folder_path_temp = (filedialog.askdirectory())
 
     if not Setup_folder_path_textbox.get() == "":
@@ -129,8 +127,18 @@ def Setup_folder_path():
     else:
         pass
 
-    Setup_folder_path_textbox.insert(0,Setup_folder_path_temp)
+    Setup_folder_path_textbox.insert(
+        0,
+        Setup_folder_path_temp.replace("/","\\") + "\\"
+    )
 
+def Execute():
+    #Pathの空白検知
+    if Setup_folder_path_textbox.get()=="":
+        tkinter.messagebox.showerror("エラー", "構築先を選択してください。")
+    else:
+        print("Check")
+        
     
 
 Aviutl_exe_checkbox = tkinter.Checkbutton(
@@ -166,4 +174,12 @@ Setup_folder_path_button = tkinter.Button(
 )
 Setup_folder_path_button.place(x=220,y=196)
 
+Exceute_button = tkinter.Button(
+    root,
+    text="実行",
+    command=Execute,
+    width=20,
+    height=3
+)
+Exceute_button.place(x=60,y=250)
 root.mainloop()
