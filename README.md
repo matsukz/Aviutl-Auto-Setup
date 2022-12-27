@@ -23,7 +23,7 @@
 |Extend_Editor_List|List|なし|`Extend_Editor_Combbox`で表示する内容のリスト|
 |Extend_Editor_Combbox|Combobox|プルダウンメニュー|設定を行うバージョンを選択する|
 
-## L-SMASHに関する変数
+### L-SMASHに関する変数
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
 |LSMASH_ckb|True OR False|なし|チェックが入っているときL-SMASHの設定を行う|
@@ -31,7 +31,7 @@
 |LSMASH_List|List|なし|`LSMASH_combobox`で表示する内容のリスト|
 |LSMASH_combobox|Combobox|プルダウンメニュー|設定を行うバージョンを選択する|
 
-## エンコーダーに関する変数
+### エンコーダーに関する変数
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
 |Encoder_ckb|True OR False|なし|チェックが入っているときエンコーダーの選定を行う|
@@ -39,7 +39,7 @@
 |Encoder_List|List|なし|`Encoder_combobox`で表示するするソフトウェアのリスト|
 |Encoder_combobox|Combobox|プルダウンメニュー|設定を行うソフトウェアを選択する|
 
-## 構築先パスに関する変数
+### 構築先パスに関する変数
 関数`Select_Setup_folder_path`
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
@@ -47,7 +47,7 @@
 |Setup_folder_path|テキスト|なし|`Filedialog`で取得した内容の格納|
 |Setup_folder_path_button|tkinter.Button|ボタン|関数`Select_Setup_folder_path`を実行する|
 
-## 実行関数に関する変数
+### 実行関数に関する変数
 関数`Execute`
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
