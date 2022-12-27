@@ -99,6 +99,11 @@ Setup_folder_path_textbox.place(
 
 def Setup_folder_path():
     global Setup_folder_path_textbox
+    if not Setup_folder_path_textbox.get() == "":
+        Setup_folder_path_textbox.delete("0","end")
+    else:
+        pass
+
     Setup_folder_path_textbox.insert(0,filedialog.askdirectory())
 
 Aviutl_exe_checkbox = tkinter.Checkbutton(
