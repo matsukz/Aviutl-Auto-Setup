@@ -4,6 +4,7 @@ import tkinter .font as f
 from tkinter import filedialog
 
 import json
+import os
 import subprocess
 
 root = tkinter.Tk()
@@ -120,27 +121,63 @@ Setup_folder_path_textbox.place(
 )
 
 def Setup_folder_path():
-    Setup_folder_path_temp = (filedialog.askdirectory())
+    Setup_folder_path_tmp = (filedialog.askdirectory())
 
-    if not Setup_folder_path_textbox.get() == "":
-        Setup_folder_path_textbox.delete("0","end")
+    if not Setup_folder_path_tmp == "":
+
+        if not Setup_folder_path_textbox.get() == "":
+            Setup_folder_path_textbox.delete("0","end")
+        else:
+            pass
+
+        Setup_folder_path_textbox.insert(
+            0,
+            Setup_folder_path_tmp.replace("/","\\") + "\\"
+        )
     else:
         pass
 
-    Setup_folder_path_textbox.insert(
-        0,
-        Setup_folder_path_temp.replace("/","\\") + "\\"
-    )
-
 def Execute():
-    #Pathの空白検知
-    if Setup_folder_path_textbox.get()=="":
+    path = Setup_folder_path_textbox.get()
+    if path =="":
         tkinter.messagebox.showerror("エラー", "構築先を選択してください。")
     else:
-        print("Check")
-        
-    
+        if os.path.exists("Cache") == True:
+            tkinter.messagebox.showerror("エラー", "一時フォルダがすでに存在します")
+            return
+        else:
+            subprocess.run("mkdir Cache",shell=True)
 
+        if Aviutl_exe_ckb.get() == True:
+            try:
+                print("Downloading...")
+                subprocess.run(
+                    "powershell -Command \"(New-Object Net.WebClient).DownloadFile('http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip', 'Cache\\Aviutl110.zip')\"",
+                    shell=True
+                )
+
+                print("Unzip...")
+                subprocess.run(
+                    "powershell -command \"Expand-Archive Cache\\Aviutl110.zip Cache\\Aviutl110\"",
+                    shell=True)
+
+                print("Moving...")
+                subprocess.run(
+                    "move /Y Cache\\aviutl110\\* " + path,
+                    shell=True
+                )
+                if os.path.exists(path+"Aviutl.exe") == True:
+                    pass
+                else:
+                    tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
+                    return
+
+            except:
+                print("Filled")
+
+        else:
+            print("NOT Check")
+            
 Aviutl_exe_checkbox = tkinter.Checkbutton(
     root,
     variable=Aviutl_exe_ckb
