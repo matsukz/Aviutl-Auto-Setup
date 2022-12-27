@@ -52,6 +52,7 @@
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
 |path|テキスト|なし|`Setup_folder_path_textbox`の内容を格納する|
+|Cache_Check|Yes OR No|なし|`Cache`フォルダの上書き確認|
 |Exceute_button|tkinter.Button|ボタン|関数`Execute`を実行する|
 
 ## 参考
