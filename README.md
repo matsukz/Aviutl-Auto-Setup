@@ -3,8 +3,8 @@
 ### テキストラベル
 |変数名|型|内容|
 |:---:|:---:|:---:|
-|Select_version_lavel|文字|`1.ソフトウェアの選択`と表示する|
-|Setup_folder_path_lavel|文字|`2.構築先フォルダを選択`と表示する|
+|Select_version_lavel|テキスト|`1.ソフトウェアの選択`と表示する|
+|Setup_folder_path_lavel|テキスト|`2.構築先フォルダを選択`と表示する|
 
 ### Aviutl.exeの設定に関係する変数
 |変数名|型|外観|内容|
@@ -39,6 +39,20 @@
 |Encoder_List|List|なし|`Encoder_combobox`で表示するするソフトウェアのリスト|
 |Encoder_combobox|Combobox|プルダウンメニュー|設定を行うソフトウェアを選択する|
 
+## 構築先パスに関する変数
+関数`Select_Setup_folder_path`
+|変数名|型|外観|内容|
+|:---:|:---:|:---:|:---:|
+|Setup_folder_path_textbox|tkinter.Entry|テキストボックス|構築先パスを入力する|
+|Setup_folder_path|テキスト|なし|`Filedialog`で取得した内容の格納|
+|Setup_folder_path_button|tkinter.Button|ボタン|関数`Select_Setup_folder_path`を実行する|
+
+## 実行関数に関する変数
+関数`Execute`
+|変数名|型|外観|内容|
+|:---:|:---:|:---:|:---:|
+|path|テキスト|なし|`Setup_folder_path_textbox`の内容を格納する|
+|Exceute_button|tkinter.Button|ボタン|関数`Execute`を実行する|
 
 ## 参考
 [【Python】tkinterでファイル&フォルダパス指定画面を作成する](https://qiita.com/dgkmtu/items/2367a73f7e2d498e6075)（採録日2022年12月26日）
