@@ -15,14 +15,29 @@
 |Aviutl_exe_Combobox|Comobox|プルダウンメニュー|設定を行うバージョンを選択する|
 
 
-### 拡張編集に関する変数
+### 拡張編集プラグインに関する変数
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
 |Extend_Editor_ckb|True OR False|なし|チェックが入っているとき拡張編集プラグインの設定を行う|
 |Extend_Editor_checkbox|-|チェックボックス|`Extend_Editor_ckb`のを設置する|
-|Extend_Editor_List|List|なし|`Extend_Editor_Combbox`で利用する内容のリスト|
+|Extend_Editor_List|List|なし|`Extend_Editor_Combbox`で表示する内容のリスト|
 |Extend_Editor_Combbox|Combobox|プルダウンメニュー|設定を行うバージョンを選択する|
 
+## L-SMASHに関する変数
+|変数名|型|外観|内容|
+|:---:|:---:|:---:|:---:|
+|LSMASH_ckb|True OR False|なし|チェックが入っているときL-SMASHの設定を行う|
+|LSMASH_checkbox|-|チェックボックス|`LSMASH_ckb`を設置する|
+|LSMASH_List|List|なし|`LSMASH_combobox`で表示する内容のリスト|
+|LSMASH_combobox|Combobox|プルダウンメニュー|設定を行うバージョンを選択する|
+
+## エンコーダーに関する変数
+|変数名|型|外観|内容|
+|:---:|:---:|:---:|:---:|
+|Encoder_ckb|True OR False|なし|チェックが入っているときエンコーダーの選定を行う|
+|Encoder_checkbox|-|チェックボックス|`Encoder_ckb`を設置する|
+|Encoder_List|List|なし|`Encoder_combobox`で表示するするソフトウェアのリスト|
+|Encoder_combobox|Combobox|プルダウンメニュー|設定を行うソフトウェアを選択する|
 
 
 ## 参考
