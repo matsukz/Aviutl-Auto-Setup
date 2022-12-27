@@ -3,6 +3,9 @@ from tkinter import ttk
 import tkinter .font as f
 from tkinter import filedialog
 
+import json
+import subprocess
+
 root = tkinter.Tk()
 root.title("Aviutl Auto Setup")
 root.geometry('500x500')
@@ -72,6 +75,25 @@ LSMASH_combobox = ttk.Combobox(
 LSMASH_combobox.set(LSMASH_List[0])
 LSMASH_combobox.place(x=60,y=110)
 
+Encoder_ckb = tkinter.BooleanVar()
+Encoder_ckb.set(True)
+
+Encoder_List = (
+    "X264guiEx",
+    "easymp4"
+)
+
+Encoder_combobox = ttk.Combobox(
+    root,
+    values=Encoder_List,
+    height=10,
+    width=30,
+    state="readonly",
+    textvariable=tkinter.StringVar()
+)
+Encoder_combobox.set(Encoder_List[0])
+Encoder_combobox.place(x=60,y=140)
+
 Setup_folder_path_lavel = tkinter.Label(
     root,
     text="2.構築先フォルダを選択",
@@ -81,7 +103,7 @@ Setup_folder_path_lavel = tkinter.Label(
         "bold"
     )
 )
-Setup_folder_path_lavel.place(x=10,y=140)
+Setup_folder_path_lavel.place(x=10,y=170)
 
 Setup_folder_path_textbox = tkinter.Entry(
     root,
@@ -92,19 +114,24 @@ Setup_folder_path_textbox = tkinter.Entry(
 )
 Setup_folder_path_textbox.place(
     x=30,
-    y=170,
+    y=200,
     width=180,
     height=30
 )
 
 def Setup_folder_path():
     global Setup_folder_path_textbox
+
+    Setup_folder_path_temp = (filedialog.askdirectory())
+
     if not Setup_folder_path_textbox.get() == "":
         Setup_folder_path_textbox.delete("0","end")
     else:
         pass
 
-    Setup_folder_path_textbox.insert(0,filedialog.askdirectory())
+    Setup_folder_path_textbox.insert(0,Setup_folder_path_temp)
+
+    
 
 Aviutl_exe_checkbox = tkinter.Checkbutton(
     root,
@@ -124,6 +151,12 @@ LSMASH_checkbox = tkinter.Checkbutton(
 )
 LSMASH_checkbox.place(x=30,y=110)
 
+Encoder_checkbox = tkinter.Checkbutton(
+    root,
+    variable=Encoder_ckb
+)
+Encoder_checkbox.place(x=30,y=140)
+
 Setup_folder_path_button = tkinter.Button(
     root,
     text="参照",
@@ -131,6 +164,6 @@ Setup_folder_path_button = tkinter.Button(
     width=6,
     height=2
 )
-Setup_folder_path_button.place(x=220,y=167)
+Setup_folder_path_button.place(x=220,y=196)
 
 root.mainloop()
