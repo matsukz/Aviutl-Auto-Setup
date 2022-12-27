@@ -1,3 +1,30 @@
+## 利用する変数について
+
+### テキストラベル
+|変数名|型|内容|
+|:---:|:---:|:---:|
+|Select_version_lavel|文字|`1.ソフトウェアの選択`と表示する|
+|Setup_folder_path_lavel|文字|`2.構築先フォルダを選択`と表示する|
+
+### Aviutl.exeの設定に関係する変数
+|変数名|型|外観|内容|
+|:---:|:---:|:---:|:---:|
+|Aviutl_exe_ckb|True OR False|なし|チェックが入っているときのときAviutl.exeの設定を行う|
+|Aviutl_exe_checkbox|-|チェックボックス|`Aviutl_exe_ckb`を設置する|
+|Aviutl_exe_List|List|なし|`Aviutl_exe_Combobox`で利用する内容のリスト|
+|Aviutl_exe_Combobox|Comobox|プルダウンメニュー|設定を行うバージョンを選択する|
+
+
+### 拡張編集に関する変数
+|変数名|型|外観|内容|
+|:---:|:---:|:---:|:---:|
+|Extend_Editor_ckb|True OR False|なし|チェックが入っているとき拡張編集プラグインの設定を行う|
+|Extend_Editor_checkbox|-|チェックボックス|`Extend_Editor_ckb`のを設置する|
+|Extend_Editor_List|List|なし|`Extend_Editor_Combbox`で利用する内容のリスト|
+|Extend_Editor_Combbox|Combobox|プルダウンメニュー|設定を行うバージョンを選択する|
+
+
+
 ## 参考
 [【Python】tkinterでファイル&フォルダパス指定画面を作成する](https://qiita.com/dgkmtu/items/2367a73f7e2d498e6075)（採録日2022年12月26日）
 
@@ -9,4 +36,4 @@
 
 [Pythonでエスケープシーケンスを無視（無効化）するraw文字列](https://note.nkmk.me/python-raw-string-escape/)（採録日2022年12月27日）
 
-[pythonでの文字列の扱い](https://qiita.com/hiroyuki_mrp/items/1504645ab6eb1a6a4103)（採録日2022年12月27日）
+[pythonでの文字列の扱い（採録日2022年12月27日）](https://qiita.com/hiroyuki_mrp/items/1504645ab6eb1a6a4103)
