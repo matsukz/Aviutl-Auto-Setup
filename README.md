@@ -9,4 +9,4 @@
 
 [Pythonでエスケープシーケンスを無視（無効化）するraw文字列](https://note.nkmk.me/python-raw-string-escape/)（採録日2022年12月27日）
 
-[pythonでの文字列の扱い（採録日2022年12月27日）](https://qiita.com/hiroyuki_mrp/items/1504645ab6eb1a6a4103)
+[pythonでの文字列の扱い](https://qiita.com/hiroyuki_mrp/items/1504645ab6eb1a6a4103)（採録日2022年12月27日）
