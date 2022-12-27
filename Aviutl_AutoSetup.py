@@ -191,13 +191,13 @@ def Execute():
         else:
             pass
 
-        open_json = json.load(open("DownloadLinks.json","r"))
+        URL_json = json.load(open("DownloadLinks.json","r"))
 
         if Aviutl_exe_ckb.get() == True:
 
             print("Downloading Aviutl...")
             subprocess.run(
-                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + open_json["Aviutlexe"]["URL"] + "\', 'Cache\\Aviutl110.zip')\"",
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["Aviutlexe"]["URL"] + "\', 'Cache\\Aviutl110.zip')\"",
                 shell=True
             )
 
@@ -224,7 +224,7 @@ def Execute():
         if Extend_Editor_ckb.get() == True:
             print("Downloading Extend_Editor...")
             subprocess.run(
-                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + open_json["ExtendEditor"]["URL"] + "\', 'Cache\\exedit92.zip')\"",
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["ExtendEditor"]["URL"] + "\', 'Cache\\exedit92.zip')\"",
                 shell=True
             )
 
@@ -250,7 +250,7 @@ def Execute():
         if LSMASH_ckb.get() == True:
             print("Downloading L-SMASH...")
             subprocess.run(
-                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + open_json["L-SMASH"]["URL"] + "\', 'Cache\\L-SMASH-Works.zip')\"",  
+                "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["L-SMASH"]["URL"] + "\', 'Cache\\L-SMASH-Works.zip')\"",  
                 shell=True 
             )
 
