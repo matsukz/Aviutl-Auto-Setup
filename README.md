@@ -3,6 +3,14 @@
 2.`参照`ボタンからフォルダを選択<br>
 3.`実行`ボタンを押す<br>
 
+対応しているソフトウェア
+* [Aviutl.exe](http://spring-fragrance.mints.ne.jp/aviutl/)
+* [拡張編集プラグイン](http://spring-fragrance.mints.ne.jp/aviutl/)
+* [L-SMASH-Works rev1100](https://github.com/Mr-Ojii/L-SMASH-Works-Auto-Builds/releases)
+* [x264guiEx 3.16](https://rigaya34589.blog.fc2.com/?cat=5)
+* [かんたんMP4出力 2020-04-23](https://aoytsk.blog.jp/aviutl/34586383.html)
+  
+`DownloadLinks.json`とセットで利用してください<br>
 `応答なし`になっても気にしないでください
 
 # 利用する変数について
