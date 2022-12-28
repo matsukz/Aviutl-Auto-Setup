@@ -1,4 +1,11 @@
-## 利用する変数について
+# 使い方
+1.導入したいソフトウェアとバージョンを選択<br>
+2.`参照`ボタンからフォルダを選択<br>
+3.`実行`ボタンを押す<br>
+
+`応答なし`になっても気にしないでください
+
+# 利用する変数について
 
 ### テキストラベル
 |変数名|型|内容|
@@ -58,7 +65,7 @@
 |Exceute_button|tkinter.Button|ボタン|関数`Execute`を実行|
 
 
-## 参考
+# 参考
 [【Python】tkinterでファイル&フォルダパス指定画面を作成する](https://qiita.com/dgkmtu/items/2367a73f7e2d498e6075)（採録日2022年12月26日）
 
 [【Python tkinter】Entry（エントリー）の使い方：オプション一覧（サイズ・外観）](https://office54.net/python/tkinter/python-tkinter-entry)（採録日2022年12月26日）
