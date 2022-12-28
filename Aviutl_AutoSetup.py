@@ -66,7 +66,7 @@ Warning_message_4.place(x=60,y=130)
 
 Warning_message_5 = tkinter.Label(
     AskAgree,
-    text="・いかなる損害にも製作者は対応しません。",
+    text="・いかなる損害にも製作者は責任を負いません。",
     font=(
         "",
         "10"
@@ -512,13 +512,13 @@ Agree_button = tkinter.Button(
 )
 Agree_button.place(x=300,y=220)
 
-Agree_button = tkinter.Button(
+Refuse_button = tkinter.Button(
     AskAgree,
     text="拒否（終了）",
     command=Refuse,
     width=20,
     height=3
 )
-Agree_button.place(x=100,y=220)
+Refuse_button.place(x=100,y=220)
 
 AskAgree.mainloop()
