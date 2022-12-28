@@ -95,7 +95,6 @@ Warning_message_7 = tkinter.Label(
 )
 Warning_message_7.place(x=80,y=190)
 
-
 def main():
 
     AskAgree.destroy()
@@ -288,6 +287,23 @@ def main():
 
             if Aviutl_exe_ckb.get() == True:
 
+                subwindow = tkinter.Toplevel()
+                subwindow.title("実行中")
+                subwindow.geometry("300x100")
+                subwindow.resizable(0,0)
+
+                Text_subwindow = tkinter.Label(
+                    subwindow,
+                    text="Aviutlを設定中...",
+                    font=(
+                        "",
+                        15
+                    )
+                )
+                Text_subwindow.place(x=10,y=10)
+
+                subwindow.update()
+
                 print("Downloading Aviutl...")
                 subprocess.run(
                     "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["Aviutlexe"]["URL"] + "\', 'Cache\\Aviutl110.zip')\"",
@@ -305,6 +321,9 @@ def main():
                     "move /Y Cache\\aviutl110\\* " + path,
                     shell=True
                 )
+
+                subwindow.destroy()
+
                 if os.path.exists(path+"Aviutl.exe") == True:
                     print("Aviutl.exe Check OK")
                 else:
@@ -315,6 +334,24 @@ def main():
                 print("NOT Check")
 
             if Extend_Editor_ckb.get() == True:
+
+                subwindow = tkinter.Toplevel()
+                subwindow.title("実行中")
+                subwindow.geometry("300x100")
+                subwindow.resizable(0,0)
+
+                Text_subwindow = tkinter.Label(
+                    subwindow,
+                    text="拡張編集プラグインを設定中...",
+                    font=(
+                        "",
+                        15
+                    )
+                )
+                Text_subwindow.place(x=10,y=10)
+
+                subwindow.update()
+
                 print("Downloading Extend_Editor...")
                 subprocess.run(
                     "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["ExtendEditor"]["URL"] + "\', 'Cache\\exedit92.zip')\"",
@@ -332,6 +369,9 @@ def main():
                     "move /Y Cache\\exedit92\\* " + path,
                     shell=True
                 )
+
+                subwindow.destroy()
+
                 if os.path.exists(path+"exedit.auf") == True:
                     print("exedit.auf Check OK")
                 else:
@@ -341,6 +381,24 @@ def main():
                 print("NOT Check")
 
             if LSMASH_ckb.get() == True:
+
+                subwindow = tkinter.Toplevel()
+                subwindow.title("実行中")
+                subwindow.geometry("300x100")
+                subwindow.resizable(0,0)
+
+                Text_subwindow = tkinter.Label(
+                    subwindow,
+                    text="L-SMASH Worksを設定中...",
+                    font=(
+                        "",
+                        15
+                    )
+                )
+                Text_subwindow.place(x=10,y=10)
+
+                subwindow.update()
+
                 print("Downloading L-SMASH...")
                 subprocess.run(
                     "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["L-SMASH"]["URL"] + "\', 'Cache\\L-SMASH-Works.zip')\"",  
@@ -368,6 +426,8 @@ def main():
                     shell=True
                 )
 
+                subwindow.destroy()
+
                 if os.path.exists(plugins_path+"lwinput.aui") == True:
                     print("lwinput.aui Check OK")
                 else:
@@ -378,6 +438,23 @@ def main():
 
             if Encoder_ckb.get() == True:
                 if Encoder_combobox.get() == "x264guiEx":
+
+                    subwindow = tkinter.Toplevel()
+                    subwindow.title("実行中")
+                    subwindow.geometry("300x100")
+                    subwindow.resizable(0,0)
+
+                    Text_subwindow = tkinter.Label(
+                        subwindow,
+                        text="x263guiExを設定中...",
+                        font=(
+                            "",
+                            15
+                        )
+                    )
+                    Text_subwindow.place(x=10,y=10)
+
+                    subwindow.update()
 
                     print("Downloading x264guiEx...")
                     subprocess.run(
@@ -423,6 +500,8 @@ def main():
                         shell=True
                     )
 
+                    subwindow.destroy()
+
                     if os.path.exists(path + "Plugins\\x264guiEx.auo") == True:
                         print("x264guiEx.auo Check Ok")
                     else:
@@ -430,6 +509,24 @@ def main():
                         return
 
                 elif Encoder_combobox.get() == "かんたんMP4出力":
+
+                    subwindow = tkinter.Toplevel()
+                    subwindow.title("実行中")
+                    subwindow.geometry("300x100")
+                    subwindow.resizable(0,0)
+
+                    Text_subwindow = tkinter.Label(
+                        subwindow,
+                        text="かんたんMP4出力を設定中...",
+                        font=(
+                            "",
+                            15
+                        )
+                    )
+                    Text_subwindow.place(x=10,y=10)
+
+                    subwindow.update()
+
                     if os.path.exists(path + "Plugins") == True:
                         pass
                     else:
@@ -457,6 +554,8 @@ def main():
                         shell=True
                     )
 
+                    subwindow.destroy()
+
                     if os.path.exists(path + "Plugins\\easymp4.auo") == True:
                         print("easymp4 Check OK")
                     else:
@@ -469,16 +568,32 @@ def main():
                 print("NOT Check")
 
             if os.path.exists("Cache") == True:
+                subwindow = tkinter.Toplevel()
+                subwindow.title("実行中")
+                subwindow.geometry("300x100")
+                subwindow.resizable(0,0)
+
+                Text_subwindow = tkinter.Label(
+                    subwindow,
+                    text="一時ファイルを削除中...",
+                    font=(
+                        "",
+                        15
+                    )
+                )
+                Text_subwindow.place(x=10,y=10)
+
+                subwindow.update()
                 print("Delete Cache")
                 subprocess.run(
                     "rd /S /Q Cache",
                     shell=True
                 )
+                subwindow.destroy()
             else:
                 pass
 
             tkinter.messagebox.showinfo("Aviutl Auto Setup","指定されたソフトウェアの設定が完了しました")
-
 
     Setup_folder_path_button = tkinter.Button(
         root,
