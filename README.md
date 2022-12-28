@@ -22,11 +22,38 @@
 
 # 利用する変数について
 
-### テキストラベル
+## ウィンドウ`システムを起動する前に`
+
+### ウィンドウ
+|変数名|内容|
+|:---:|:---:|
+|AskAgree|利用規約を表示|
+
+### テキスト
 |変数名|型|内容|
 |:---:|:---:|:---:|
-|Select_version_lavel|テキスト|`1.ソフトウェアの選択`と表示|
-|Setup_folder_path_lavel|テキスト|`2.構築先フォルダを選択`と表示|
+|Warning_message_title|tkinter.Label|`このソフトウェアを利用するにあたって`|
+|Warning_message_1|tkinter.Label|`以下の事項を必ずご確認ください`|
+|Warning_message_2|tkinter.Label|`・利用するPCをインターネットに接続してください。（通信料は利用者負担）`|
+|Warning_message_3|tkinter.Label|`・Windows10のみ動作テストを行いました。(Windows以外では正常に動作しません)`|
+|Warning_message_4|tkinter.Label|`・Aviutlをすでに導入されているならば必ずバックアップを行ってください。`|
+|Warning_message_5|tkinter.Label|`・いかなる損害にも製作者は責任を負いません。`|
+|Warning_message_6|tkinter.Label|`・その他のルールは製作者のGitHubにある本プログラムのReadmeをご確認ください。`|
+|Warning_message_7|tkinter.Label|`上記の項目を確認の上、「同意」を選択してください。`|
+
+### ボタン
+|変数名|型|内容|
+|:---:|:---:|:---:|
+|Agree_button|tkinter.button|`main`を実行する|
+|Refuse_button|tkinter.button|`Refuse`を実行しプログラム終了|
+
+## ウィンドウ`Aviutl Auto Setup`
+
+### テキスト
+|変数名|型|内容|
+|:---:|:---:|:---:|
+|Select_version_lavel|tkinter.Label|`1.ソフトウェアの選択`と表示|
+|Setup_folder_path_lavel|tkinter.Label|`2.構築先フォルダを選択`と表示|
 
 ### Aviutl.exeの設定に関係する変数
 |変数名|型|外観|内容|
