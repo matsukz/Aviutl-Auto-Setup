@@ -100,6 +100,15 @@ def main():
 
     AskAgree.destroy()
 
+    if os.path.exists("DownloadLinks.json") == True:
+        pass
+    else:
+        tkinter.messagebox.showerror(
+            "ERROR",
+            "DownloadLonsk.jsonが存在しません"
+        )
+        return
+
     root = tkinter.Tk()
     root.title("Aviutl Auto Setup")
     root.geometry("300x350")
@@ -264,17 +273,17 @@ def main():
         path = Setup_folder_path_textbox.get()
 
         if path =="":
-            tkinter.messagebox.showerror("エラー", "構築先を選択してください。")
+            tkinter.messagebox.showerror("ERROR", "構築先を選択してください。")
         else:
             if os.path.exists("Cache") == True:
                 Cache_Check = tkinter.messagebox.askquestion(
-                    "エラー",
+                    "ERROR",
                     "一時フォルダ\"Cache\"がすでに存在します。\n 削除してもよろしいですか？"
                 )
                 if Cache_Check == "yes":
                     subprocess.run("rd /S /Q Cache",shell=True)
                 else:
-                    tkinter.messagebox.showerror("エラー","処理を継続できません")
+                    tkinter.messagebox.showerror("ERROR","処理を継続できません")
                     return
             else:
                 pass
@@ -330,10 +339,10 @@ def main():
                     if os.path.exists(path+"Aviutl.exe") == True:
                         print("Aviutl.exe Check OK")
                     else:
-                        tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
+                        tkinter.messagebox.showerror("ERROR","Aviutl.exeの取得に失敗しました")
                         ERROR = ERROR + 1
                 else:
-                    tkinter.messagebox.showerror("エラー", "Aviutlのダウンロードに失敗しました")
+                    tkinter.messagebox.showerror("ERROR", "Aviutlのダウンロードに失敗しました")
                     ERROR = ERROR + 1
 
             else:
@@ -384,11 +393,11 @@ def main():
                             print(URL_json["ExtendEditor"]["FILE"][str(i)] + " Check OK")
                             i = i + 1
                         else:
-                            tkinter.messagebox.showerror("エラー","拡張編集プラグインの取得に失敗しました")
+                            tkinter.messagebox.showerror("ERROR","拡張編集プラグインの取得に失敗しました")
                             ERROR = ERROR + 1
                             break
                 else:
-                    tkinter.messagebox.showerror("エラー", "拡張編集プラグインのダウンロードに失敗しました")
+                    tkinter.messagebox.showerror("ERROR", "拡張編集プラグインのダウンロードに失敗しました")
                     ERROR = ERROR + 1
 
             else:
@@ -449,11 +458,11 @@ def main():
                             print(URL_json["L-SMASH"]["FILE"][str(i)] + " Check OK")
                             i = i + 1
                         else:
-                            tkinter.messagebox.showerror("エラー","L-SMASH-Worksの取得に失敗しました")
+                            tkinter.messagebox.showerror("ERROR","L-SMASH-Worksの取得に失敗しました")
                             ERROR = ERROR + 1
                             break    
                 else:
-                    tkinter.messagebox.showerror("エラー", "L-SMASH-Worksのダウンロードに失敗しました")
+                    tkinter.messagebox.showerror("ERROR", "L-SMASH-Worksのダウンロードに失敗しました")
                     ERROR = ERROR + 1
                 
             else:
@@ -531,10 +540,10 @@ def main():
                         if os.path.exists(path + "Plugins\\x264guiEx.auo") == True:
                             print("x264guiEx.auo Check Ok")
                         else:
-                            tkinter.messagebox.showerror("エラー", "x264guiExの取得に失敗しました")
+                            tkinter.messagebox.showerror("ERROR", "x264guiExの取得に失敗しました")
                             ERROR = ERROR + 1
                     else:
-                        tkinter.messagebox.showerror("エラー", "x264guiExのダウンロードに失敗しました")
+                        tkinter.messagebox.showerror("ERROR", "x264guiExのダウンロードに失敗しました")
                         ERROR = ERROR + 1
 
                 elif Encoder_combobox.get() == "かんたんMP4出力":
@@ -588,14 +597,14 @@ def main():
                         if os.path.exists(path + "Plugins\\easymp4.auo") == True:
                             print("easymp4 Check OK")
                         else:
-                            tkinter.messagebox.showerror("エラー", "easymp4の取得に失敗しました")
+                            tkinter.messagebox.showerror("ERROR", "easymp4の取得に失敗しました")
                             ERROR = ERROR + 1
                     else:
-                        tkinter.messagebox.showerror("エラー", "easymp4のダウンロードに失敗しました")
+                        tkinter.messagebox.showerror("ERROR", "easymp4のダウンロードに失敗しました")
                         ERROR = ERROR + 1
 
                 else:
-                    tkinter.messagebox.showerror("エラー", "\"Encoder\"にて致命的なエラーが発生しました")
+                    tkinter.messagebox.showerror("ERROR", "\"Encoder\"にて致命的なエラーが発生しました")
                     return
             else:
                 print("NOT Check")
@@ -630,7 +639,7 @@ def main():
             tkinter.messagebox.showinfo("Aviutl Auto Setup", "指定されたソフトウェアの構築が終了しました")
         else:
             tkinter.messagebox.showerror(
-                "エラー",
+                "ERROR",
                 "処理が正常に行えませんでした（エラー数："+ str(ERROR) + "）"
             )
         
