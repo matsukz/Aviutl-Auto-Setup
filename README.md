@@ -93,13 +93,14 @@
 |Encoder_checkbox|-|チェックボックス|`Encoder_ckb`を設置|
 |Encoder_List|List|なし|`Encoder_combobox`で表示するソフトウェアのリスト|
 |Encoder_combobox|Combobox|プルダウンメニュー|設定を行うソフトウェアを選択|
+|BeforePath|文字列|なし|バージョン付きフォルダ名をリネームする|
 
 ### 構築先パスに関する変数
 関数`Select_Setup_folder_path`
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
 |Setup_folder_path_textbox|tkinter.Entry|テキストボックス|構築先パスを入力|
-|Setup_folder_path|テキスト|なし|`Filedialog`で取得した内容の格納|
+|Setup_folder_path|文字列|なし|`Filedialog`で取得した内容の格納|
 |Setup_folder_path_button|tkinter.Button|ボタン|関数`Select_Setup_folder_path`を実行|
 
 ### 実行関数に関する変数
@@ -107,10 +108,11 @@
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
 |ERROR|数値|なし|エラーの数を数える|
-|path|テキスト|なし|`Setup_folder_path_textbox`の内容を格納|
-|URL_json|テキスト|なし|`DownloadLinks.json`からURLを格納|
+|path|文字列|なし|`Setup_folder_path_textbox`の内容を格納|
+|URL_json|文字列|なし|`DownloadLinks.json`からURLを格納|
 |Cache_Check|Yes OR No|なし|`Cache`フォルダの上書き確認|
-|plugins_path|テキスト|なし|`Plugins`フォルダのパスを格納|
+|plugins_path|文字列|なし|`Plugins`フォルダのパスを格納|
+|i|数値|なし|ファイル探索で用いるカウンタ|
 |Exceute_button|tkinter.Button|ボタン|関数`Execute`を実行|
 
 
@@ -127,6 +129,10 @@
 
 [pythonでの文字列の扱い](https://qiita.com/hiroyuki_mrp/items/1504645ab6eb1a6a4103)（閲覧日2022年12月27日）
 
-[Pythonで型の違いを意識してjson loadsを具体的に使ってみよう！](https://www.sejuku.net/blog/78985)（閲覧日：2022年12月29日）
+[Pythonで型の違いを意識してjson loadsを具体的に使ってみよう！](https://www.sejuku.net/blog/78985)（閲覧日2022年12月29日）
 
-[while文を使った繰り返し](https://www.javadrive.jp/python/for/index1.html)（閲覧日：2022年12月29日）
+[while文を使った繰り返し](https://www.javadrive.jp/python/for/index1.html)（閲覧日2022年12月29日）
+
+[【Python入門】os.renameでファイル名を変更する方法を解説！](https://www.sejuku.net/blog/63732)（閲覧日2022年12月29日）
+
+[python, os.rename エラー](https://teratail.com/questions/230259)（閲覧日2022年12月29日）
