@@ -1,6 +1,7 @@
 {
     "Aviutlexe":{
         "URL":"http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip"
+
     },
 
     "ExtendEditor":{
@@ -8,10 +9,16 @@
     },
 
     "L-SMASH":{
-        "URL":"https://github.com/Mr-Ojii/L-SMASH-Works-Auto-Builds/releases/download/build-2022-12-26-01-49-07/L-SMASH-Works_rev1100_Mr-Ojii_Mr-Ojii_AviUtl.zip"
+        "URL":"https://github.com/Mr-Ojii/L-SMASH-Works-Auto-Builds/releases/download/build-2022-12-26-01-49-07/L-SMASH-Works_rev1100_Mr-Ojii_Mr-Ojii_AviUtl.zip",
+        "FILE":{
+            "1":"lwdumper.auf",
+            "2":"lwmuxer.auf",
+            "3":"lwcolor.auc",
+            "4":"lwinput.aui" 
+        }
     },
 
-    "X264guiEx":{
+    "x264guiEx":{
         "URL":"https://github.com/rigaya/x264guiEx/releases/download/3.16/x264guiEx_3.16.zip"
     },
 
