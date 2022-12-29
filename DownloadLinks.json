@@ -5,7 +5,21 @@
     },
 
     "ExtendEditor":{
-        "URL":"http://spring-fragrance.mints.ne.jp/aviutl/exedit92.zip"
+        "URL":"http://spring-fragrance.mints.ne.jp/aviutl/exedit92.zip",
+        "FILE":{
+            "1":"exedit.anm",
+            "2":"exedit.auf",
+            "3":"exedit.aui",
+            "4":"exedit.auo",
+            "5":"exedit.cam",
+            "6":"exedit.ini",
+            "7":"exedit.obj",
+            "8":"exedit.scn",
+            "9":"exedit.tra",
+            "10":"lua51.dll",
+            "11":"exedit.txt",
+            "12":"lua.txt"
+        }
     },
 
     "L-SMASH":{
