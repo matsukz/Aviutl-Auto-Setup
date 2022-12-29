@@ -6,6 +6,7 @@ from tkinter import filedialog
 import os
 import subprocess
 import json
+import glob
 
 AskAgree = tkinter.Tk()
 AskAgree.title("システムを起動する前に")
@@ -312,29 +313,27 @@ def main():
                     shell=True
                 )
                 if os.path.exists("Cache\\Aviutl110.zip") == True:
-                    pass
+                    print("Unzip Aviutl.zip...")
+                    subprocess.run(
+                        "powershell -command \"Expand-Archive Cache\\Aviutl110.zip Cache\\Aviutl110\"",
+                        shell=True
+                    )
+
+                    print("Moving Aviutl.exe...")
+                    subprocess.run(
+                        "move /Y Cache\\aviutl110\\* " + path,
+                        shell=True
+                    )
+
+                    subwindow.destroy()
+
+                    if os.path.exists(path+"Aviutl.exe") == True:
+                        print("Aviutl.exe Check OK")
+                    else:
+                        tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
+                        ERROR = ERROR + 1
                 else:
                     tkinter.messagebox.showerror("エラー", "Aviutlのダウンロードに失敗しました")
-                    ERROR = ERROR + 1
-
-                print("Unzip Aviutl.zip...")
-                subprocess.run(
-                    "powershell -command \"Expand-Archive Cache\\Aviutl110.zip Cache\\Aviutl110\"",
-                    shell=True
-                )
-
-                print("Moving Aviutl.exe...")
-                subprocess.run(
-                    "move /Y Cache\\aviutl110\\* " + path,
-                    shell=True
-                )
-
-                subwindow.destroy()
-
-                if os.path.exists(path+"Aviutl.exe") == True:
-                    print("Aviutl.exe Check OK")
-                else:
-                    tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
                     ERROR = ERROR + 1
 
             else:
@@ -365,29 +364,31 @@ def main():
                     shell=True
                 )
                 if os.path.exists("Cache\\exedit92.zip") == True:
-                    pass
+                    print("Unzip exedit92.zip...")
+                    subprocess.run(
+                        "powershell -command \"Expand-Archive Cache\\exedit92.zip Cache\\exedit92\"",
+                        shell=True
+                    )
+
+                    print("Moving exedit92...")
+                    subprocess.run(
+                        "move /Y Cache\\exedit92\\* " + path,
+                        shell=True
+                    )
+
+                    subwindow.destroy()
+
+                    i = 1
+                    while i < 13:
+                        if os.path.exists(path + URL_json["ExtendEditor"]["FILE"][str(i)]) == True:
+                            print(URL_json["ExtendEditor"]["FILE"][str(i)] + " Check OK")
+                            i = i + 1
+                        else:
+                            tkinter.messagebox.showerror("エラー","拡張編集プラグインの取得に失敗しました")
+                            ERROR = ERROR + 1
+                            break
                 else:
                     tkinter.messagebox.showerror("エラー", "拡張編集プラグインのダウンロードに失敗しました")
-                    ERROR = ERROR + 1
-
-                print("Unzip exedit92.zip...")
-                subprocess.run(
-                    "powershell -command \"Expand-Archive Cache\\exedit92.zip Cache\\exedit92\"",
-                    shell=True
-                )
-
-                print("Moving exedit92...")
-                subprocess.run(
-                    "move /Y Cache\\exedit92\\* " + path,
-                    shell=True
-                )
-
-                subwindow.destroy()
-
-                if os.path.exists(path+"exedit.auf") == True:
-                    print("exedit.auf Check OK")
-                else:
-                    tkinter.messagebox.showerror("エラー","拡張編集プラグインの取得に失敗しました")
                     ERROR = ERROR + 1
 
             else:
@@ -418,44 +419,43 @@ def main():
                     shell=True 
                 )
                 if os.path.exists("Cache\\L-SMASH-Works.zip") == True:
-                    pass
+                    print("Unzip L-SMASH...")
+                    subprocess.run(
+                        "powershell -command \"Expand-Archive Cache\\L-SMASH-Works.zip Cache\\L-SMASH-Works\"",
+                        shell=True
+                    )
+
+                    print("Moving L-SMASH...")
+                    plugins_path = path + "Plugins\\"
+                    subprocess.run(
+                        "move /Y Cache\\L-SMASH-Works\\*.auf " + plugins_path,
+                        shell=True
+                    )
+                    subprocess.run(
+                        "move /Y Cache\\L-SMASH-Works\\lwcolor.auc " + plugins_path,
+                        shell=True
+                    )
+                    subprocess.run(
+                        "move /Y Cache\\L-SMASH-Works\\lwinput.aui " + plugins_path,
+                        shell=True
+                    )
+
+                    subwindow.destroy()
+
+                    i = 1
+                    while i < 5:
+
+                        if os.path.exists(plugins_path + URL_json["L-SMASH"]["FILE"][str(i)]) == True:
+                            print(URL_json["L-SMASH"]["FILE"][str(i)] + " Check OK")
+                            i = i + 1
+                        else:
+                            tkinter.messagebox.showerror("エラー","L-SMASH-Worksの取得に失敗しました")
+                            ERROR = ERROR + 1
+                            break    
                 else:
                     tkinter.messagebox.showerror("エラー", "L-SMASH-Worksのダウンロードに失敗しました")
                     ERROR = ERROR + 1
-
-                print("Unzip L-SMASH...")
-                subprocess.run(
-                    "powershell -command \"Expand-Archive Cache\\L-SMASH-Works.zip Cache\\L-SMASH-Works\"",
-                    shell=True
-                )
-
-                print("Moving L-SMASH...")
-                plugins_path = path + "Plugins\\"
-                subprocess.run(
-                    "move /Y Cache\\L-SMASH-Works\\*.auf " + plugins_path,
-                    shell=True
-                )
-                subprocess.run(
-                    "move /Y Cache\\L-SMASH-Works\\lwcolor.auc " + plugins_path,
-                    shell=True
-                )
-                subprocess.run(
-                    "move /Y Cache\\L-SMASH-Works\\lwinput.aui " + plugins_path,
-                    shell=True
-                )
-
-                subwindow.destroy()
-
-                i = 1
-                while i < 5:
-
-                    if os.path.exists(plugins_path + URL_json["L-SMASH"]["FILE"][str(i)]) == True:
-                        print(URL_json["L-SMASH"]["FILE"][str(i)] + " Check OK")
-                        i = i + 1
-                    else:
-                        tkinter.messagebox.showerror("エラー","L-SMASH-Worksの取得に失敗しました")
-                        ERROR = ERROR + 1
-                        break
+                
             else:
                 print("NOT Check")
 
@@ -485,55 +485,56 @@ def main():
                         shell=True 
                     )
                     if os.path.exists("Cache\\x264guiEx.zip") == True:
-                        pass
+                        print("Unzip x264guiEx...")
+                        subprocess.run(
+                            "powershell -command \"Expand-Archive Cache\\x264guiEx.zip Cache\\x264guiEx\"",
+                            shell=True
+                        )
+
+                        BeforPath = glob.glob("Cache\\x264guiEx\\x264guiEx*")
+                        os.rename(BeforPath[0],"Cache\\x264guiEx\\x264guiEx")
+
+                        print("Moving x264guiEx...")
+
+                        subprocess.run(
+                            "move /Y Cache\\x264guiEx\\x264guiEx\\x264guiEx_readme.txt " + path,
+                            shell=True
+                        )
+                        if os.path.exists(path + "exe_files") == True:
+                            pass
+                        else:
+                            subprocess.run(
+                                "mkdir " + path + "exe_files",
+                                shell=True
+                            )
+
+                        subprocess.run(
+                            "echo D | xcopy Cache\\x264guiEx\\x264guiEx\\exe_files\\* " + path + "exe_files /E /H /C /I",
+                            shell=True 
+                        )
+
+                        if os.path.exists(path+"Plugins") == True:
+                            pass
+                        else:
+                            subprocess.run(
+                                "mkdir " + path + "Plugins",
+                                shell=True
+                            )
+
+                        subprocess.run(
+                            "echo D | xcopy Cache\\x264guiEx\\x264guiEx\\plugins\\* " + path + "Plugins /E /H /C /I",
+                            shell=True
+                        )
+
+                        subwindow.destroy()
+
+                        if os.path.exists(path + "Plugins\\x264guiEx.auo") == True:
+                            print("x264guiEx.auo Check Ok")
+                        else:
+                            tkinter.messagebox.showerror("エラー", "x264guiExの取得に失敗しました")
+                            ERROR = ERROR + 1
                     else:
                         tkinter.messagebox.showerror("エラー", "x264guiExのダウンロードに失敗しました")
-                        ERROR = ERROR + 1
-
-                    print("Unzip x264guiEx...")
-                    subprocess.run(
-                        "powershell -command \"Expand-Archive Cache\\x264guiEx.zip Cache\\x264guiEx\"",
-                        shell=True
-                    )
-
-                    print("Moving x264guiEx...")
-
-                    subprocess.run(
-                        "move /Y Cache\\x264guiEx\\x264gui_3.16\\x264guiEx_readme.txt " + path,
-                        shell=True
-                    )
-                    if os.path.exists(path + "exe_files") == True:
-                        pass
-                    else:
-                        subprocess.run(
-                            "mkdir " + path + "exe_files",
-                            shell=True
-                        )
-
-                    subprocess.run(
-                        "echo D | xcopy Cache\\x264guiEx\\x264guiEx_3.16\\exe_files\\* " + path + "exe_files /E /H /C /I",
-                        shell=True 
-                    )
-
-                    if os.path.exists(path+"Plugins") == True:
-                        pass
-                    else:
-                        subprocess.run(
-                            "mkdir " + path + "Plugins",
-                            shell=True
-                        )
-
-                    subprocess.run(
-                        "echo D | xcopy Cache\\x264guiEx\\x264guiEx_3.16\\plugins\\* " + path + "Plugins /E /H /C /I",
-                        shell=True
-                    )
-
-                    subwindow.destroy()
-
-                    if os.path.exists(path + "Plugins\\x264guiEx.auo") == True:
-                        print("x264guiEx.auo Check Ok")
-                    else:
-                        tkinter.messagebox.showerror("エラー", "x264guiExの取得に失敗しました")
                         ERROR = ERROR + 1
 
                 elif Encoder_combobox.get() == "かんたんMP4出力":
@@ -569,30 +570,28 @@ def main():
                         shell=True 
                     )
                     if os.path.exists("Cache\\easymp4.zip") == True:
-                        pass
+                        print("Unzip easymp4...")
+                        subprocess.run(
+                            "powershell -command \"Expand-Archive Cache\\easymp4.zip Cache\\easymp4\"",
+                            shell=True
+                        )
+
+                        print("Moving easymp4...")
+
+                        subprocess.run(
+                            "move /Y Cache\\easymp4\\easymp4.auo " + path + "Plugins",
+                            shell=True
+                        )
+
+                        subwindow.destroy()
+
+                        if os.path.exists(path + "Plugins\\easymp4.auo") == True:
+                            print("easymp4 Check OK")
+                        else:
+                            tkinter.messagebox.showerror("エラー", "easymp4の取得に失敗しました")
+                            ERROR = ERROR + 1
                     else:
                         tkinter.messagebox.showerror("エラー", "easymp4のダウンロードに失敗しました")
-                        ERROR = ERROR + 1
-
-                    print("Unzip easymp4...")
-                    subprocess.run(
-                        "powershell -command \"Expand-Archive Cache\\easymp4.zip Cache\\easymp4\"",
-                        shell=True
-                    )
-
-                    print("Moving easymp4...")
-
-                    subprocess.run(
-                        "move /Y Cache\\easymp4\\easymp4.auo " + path + "Plugins",
-                        shell=True
-                    )
-
-                    subwindow.destroy()
-
-                    if os.path.exists(path + "Plugins\\easymp4.auo") == True:
-                        print("easymp4 Check OK")
-                    else:
-                        tkinter.messagebox.showerror("エラー", "easymp4の取得に失敗しました")
                         ERROR = ERROR + 1
 
                 else:
