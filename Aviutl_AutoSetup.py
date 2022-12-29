@@ -258,6 +258,8 @@ def main():
 
     def Execute():
 
+        ERROR = 0
+
         path = Setup_folder_path_textbox.get()
 
         if path =="":
@@ -309,6 +311,11 @@ def main():
                     "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["Aviutlexe"]["URL"] + "\', 'Cache\\Aviutl110.zip')\"",
                     shell=True
                 )
+                if os.path.exists("Cache\\Aviutl110.zip") == True:
+                    pass
+                else:
+                    tkinter.messagebox.showerror("エラー", "Aviutlのダウンロードに失敗しました")
+                    ERROR = ERROR + 1
 
                 print("Unzip Aviutl.zip...")
                 subprocess.run(
@@ -328,7 +335,7 @@ def main():
                     print("Aviutl.exe Check OK")
                 else:
                     tkinter.messagebox.showerror("エラー","Aviutl.exeの取得に失敗しました")
-                    return
+                    ERROR = ERROR + 1
 
             else:
                 print("NOT Check")
@@ -357,6 +364,11 @@ def main():
                     "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["ExtendEditor"]["URL"] + "\', 'Cache\\exedit92.zip')\"",
                     shell=True
                 )
+                if os.path.exists("Cache\\exedit92.zip") == True:
+                    pass
+                else:
+                    tkinter.messagebox.showerror("エラー", "拡張編集プラグインのダウンロードに失敗しました")
+                    ERROR = ERROR + 1
 
                 print("Unzip exedit92.zip...")
                 subprocess.run(
@@ -376,7 +388,8 @@ def main():
                     print("exedit.auf Check OK")
                 else:
                     tkinter.messagebox.showerror("エラー","拡張編集プラグインの取得に失敗しました")
-                    return
+                    ERROR = ERROR + 1
+
             else:
                 print("NOT Check")
 
@@ -404,6 +417,11 @@ def main():
                     "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["L-SMASH"]["URL"] + "\', 'Cache\\L-SMASH-Works.zip')\"",  
                     shell=True 
                 )
+                if os.path.exists("Cache\\L-SMASH-Works.zip") == True:
+                    pass
+                else:
+                    tkinter.messagebox.showerror("エラー", "L-SMASH-Worksのダウンロードに失敗しました")
+                    ERROR = ERROR + 1
 
                 print("Unzip L-SMASH...")
                 subprocess.run(
@@ -428,11 +446,16 @@ def main():
 
                 subwindow.destroy()
 
-                if os.path.exists(plugins_path+"lwinput.aui") == True:
-                    print("lwinput.aui Check OK")
-                else:
-                    tkinter.messagebox.showerror("エラー","L-SMASH-Worksの取得に失敗しました")
-                    return
+                i = 1
+                while i < 5:
+
+                    if os.path.exists(plugins_path + URL_json["L-SMASH"]["FILE"][str(i)]) == True:
+                        print(URL_json["L-SMASH"]["FILE"][str(i)] + " Check OK")
+                        i = i + 1
+                    else:
+                        tkinter.messagebox.showerror("エラー","L-SMASH-Worksの取得に失敗しました")
+                        ERROR = ERROR + 1
+                        break
             else:
                 print("NOT Check")
 
@@ -446,7 +469,7 @@ def main():
 
                     Text_subwindow = tkinter.Label(
                         subwindow,
-                        text="x263guiExを設定中...",
+                        text="x264guiExを設定中...",
                         font=(
                             "",
                             15
@@ -461,6 +484,11 @@ def main():
                         "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["x264guiEx"]["URL"] + "\', 'Cache\\x264guiEx.zip')\"",  
                         shell=True 
                     )
+                    if os.path.exists("Cache\\x264guiEx.zip") == True:
+                        pass
+                    else:
+                        tkinter.messagebox.showerror("エラー", "x264guiExのダウンロードに失敗しました")
+                        ERROR = ERROR + 1
 
                     print("Unzip x264guiEx...")
                     subprocess.run(
@@ -506,7 +534,7 @@ def main():
                         print("x264guiEx.auo Check Ok")
                     else:
                         tkinter.messagebox.showerror("エラー", "x264guiExの取得に失敗しました")
-                        return
+                        ERROR = ERROR + 1
 
                 elif Encoder_combobox.get() == "かんたんMP4出力":
 
@@ -540,6 +568,11 @@ def main():
                         "powershell -Command \"(New-Object Net.WebClient).DownloadFile(\'" + URL_json["easyMP4"]["URL"] + "\', 'Cache\\easymp4.zip')\"",  
                         shell=True 
                     )
+                    if os.path.exists("Cache\\easymp4.zip") == True:
+                        pass
+                    else:
+                        tkinter.messagebox.showerror("エラー", "easymp4のダウンロードに失敗しました")
+                        ERROR = ERROR + 1
 
                     print("Unzip easymp4...")
                     subprocess.run(
@@ -560,7 +593,8 @@ def main():
                         print("easymp4 Check OK")
                     else:
                         tkinter.messagebox.showerror("エラー", "easymp4の取得に失敗しました")
-                        return
+                        ERROR = ERROR + 1
+
                 else:
                     tkinter.messagebox.showerror("エラー", "\"Encoder\"にて致命的なエラーが発生しました")
                     return
@@ -593,7 +627,15 @@ def main():
             else:
                 pass
 
-            tkinter.messagebox.showinfo("Aviutl Auto Setup","指定されたソフトウェアの設定が完了しました")
+        if ERROR == 0 :
+            tkinter.messagebox.showinfo("Aviutl Auto Setup", "指定されたソフトウェアの構築が終了しました")
+        else:
+            tkinter.messagebox.showerror(
+                "エラー",
+                "処理が正常に行えませんでした（エラー数："+ str(ERROR) + "）"
+            )
+        
+        print("Complete")
 
     Setup_folder_path_button = tkinter.Button(
         root,
