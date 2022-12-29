@@ -500,8 +500,8 @@ def main():
                             shell=True
                         )
 
-                        BeforPath = glob.glob("Cache\\x264guiEx\\x264guiEx*")
-                        os.rename(BeforPath[0],"Cache\\x264guiEx\\x264guiEx")
+                        BeforePath = glob.glob("Cache\\x264guiEx\\x264guiEx*")
+                        os.rename(BeforePath[0],"Cache\\x264guiEx\\x264guiEx")
 
                         print("Moving x264guiEx...")
 
