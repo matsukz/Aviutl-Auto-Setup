@@ -106,6 +106,7 @@
 関数`Execute`
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
+|ERROR|数値|なし|エラーの数を数える|
 |path|テキスト|なし|`Setup_folder_path_textbox`の内容を格納|
 |URL_json|テキスト|なし|`DownloadLinks.json`からURLを格納|
 |Cache_Check|Yes OR No|なし|`Cache`フォルダの上書き確認|
