@@ -7,33 +7,105 @@
     "ExtendEditor":{
         "URL":"http://spring-fragrance.mints.ne.jp/aviutl/exedit92.zip",
         "FILE":{
-            "1":"exedit.anm",
-            "2":"exedit.auf",
-            "3":"exedit.aui",
-            "4":"exedit.auo",
-            "5":"exedit.cam",
-            "6":"exedit.ini",
-            "7":"exedit.obj",
-            "8":"exedit.scn",
-            "9":"exedit.tra",
-            "10":"lua51.dll",
-            "11":"exedit.txt",
-            "12":"lua.txt"
+            "0":"exedit.anm",
+            "1":"exedit.auf",
+            "2":"exedit.aui",
+            "3":"exedit.auo",
+            "4":"exedit.cam",
+            "5":"exedit.ini",
+            "6":"exedit.obj",
+            "7":"exedit.scn",
+            "8":"exedit.tra",
+            "9":"lua51.dll",
+            "10":"exedit.txt",
+            "11":"lua.txt",
+            "12":"END"
         }
     },
 
     "L-SMASH":{
         "URL":"https://github.com/Mr-Ojii/L-SMASH-Works-Auto-Builds/releases/download/build-2022-12-26-01-49-07/L-SMASH-Works_rev1100_Mr-Ojii_Mr-Ojii_AviUtl.zip",
         "FILE":{
-            "1":"lwdumper.auf",
-            "2":"lwmuxer.auf",
-            "3":"lwcolor.auc",
-            "4":"lwinput.aui" 
+            "0":"lwdumper.auf",
+            "1":"lwmuxer.auf",
+            "2":"lwcolor.auc",
+            "3":"lwinput.aui",
+            "4":"END"
         }
     },
 
     "x264guiEx":{
-        "URL":"https://github.com/rigaya/x264guiEx/releases/download/3.16/x264guiEx_3.16.zip"
+        "URL":"https://github.com/rigaya/x264guiEx/releases/download/3.16/x264guiEx_3.16.zip",
+        "FILE":{ 
+            "DirPath":{
+                "0":"exe_files\\",
+                "1":"Plugins\\",
+                "2":"Plugins\\x264guiEx_stg\\",
+                "3":"Plugins\\x264guiEx_stg\\Bluray\\",
+                "4":"Plugins\\x264guiEx_stg\\iPhone iPod iPad\\",
+                "5":"Plugins\\x264guiEx_stg\\ニコ動\\",
+                "6":"END" 
+            },  
+            
+            "0":{
+                "0":"x264_3095_x64.exe",
+                "1":"auo_setup.exe",
+                "2":"auo_check_fileopen.exe",
+                "3":"ffmpeg_audenc.exe",
+                "4":"muxer_x64.exe",
+                "5":"muxer_x86.exe",
+                "6":"ndp48-web.exe",
+                "7":"ndp48-x86-x64-allos-jpn.exe",
+                "8":"remuxer_x64.exe",
+                "9":"remuxer_x86.exe",
+                "10":"timelineeditor_x64.exe",
+                "11":"timelineeditor_x86.exe",
+                "12":"VC_redist.x86.exe",
+                "13":"x264_3095_x86.exe",
+                "14":"check_dotnet.dll",
+                "15":"check_vc.dll",
+                "16":"auo_setup.ini",
+                "17":"END"
+            },
+            "1":{
+                "0":"x264guiEx.en.ini",
+                "1":"x264guiEx.ini",
+                "2":"x264guiEx.zh.ini",
+                "3":"auo_setup.auf",
+                "4":"x264guiEx.auo",
+                "5":"END"
+            },
+            "2":{
+                "0":"PS3.stg",
+                "1":"PSP.stg",
+                "2":"twitter.stg",
+                "3":"Xbox 360.stg",
+                "4":"youtube.stg",
+                "5":"アニメ (高圧縮).stg",
+                "6":"アニメ (高画質).stg",
+                "7":"バランス.stg",
+                "8":"高画質.stg",
+                "9":"高速.stg",
+                "10":"END"
+            },
+            "3":{
+                "0":"Bluray (tff).stg",
+                "1":"Bluray.stg",
+                "2":"END"
+            },
+            "4":{
+                "0":"iPhone3G, iPodtouch2-3.stg",
+                "1":"iPhone4, iPad, iPodtouch4.stg",
+                "2":"iPhone4S, iPad2.stg",
+                "3":"END"
+            },
+            "5":{
+                "0":"ニコ動  30分以下.stg",
+                "1":"ニコ動 30分以上.stg",
+                "2":"ニコ動 音質重視.stg",
+                "3":"END"
+            }
+        }
     },
 
     "easyMP4":{
