@@ -295,7 +295,7 @@ def main():
             else:
                 pass
 
-            URL_json = json.load(open("DownloadLinks.json","r"))
+            URL_json = json.load(open("DownloadLinks.json","r",encoding="utf-8"))
 
             if Aviutl_exe_ckb.get() == True:
 
@@ -387,8 +387,8 @@ def main():
 
                     subwindow.destroy()
 
-                    i = 1
-                    while i < 13:
+                    i = 0
+                    while i < 12:
                         if os.path.exists(path + URL_json["ExtendEditor"]["FILE"][str(i)]) == True:
                             print(URL_json["ExtendEditor"]["FILE"][str(i)] + " Check OK")
                             i = i + 1
@@ -451,8 +451,8 @@ def main():
 
                     subwindow.destroy()
 
-                    i = 1
-                    while i < 5:
+                    i = 0
+                    while i < 4:
 
                         if os.path.exists(plugins_path + URL_json["L-SMASH"]["FILE"][str(i)]) == True:
                             print(URL_json["L-SMASH"]["FILE"][str(i)] + " Check OK")
@@ -636,15 +636,14 @@ def main():
                 pass
 
         if ERROR == 0 :
+            print("Complete")
             tkinter.messagebox.showinfo("Aviutl Auto Setup", "指定されたソフトウェアの構築が終了しました")
         else:
             tkinter.messagebox.showerror(
                 "ERROR",
                 "処理が正常に行えませんでした（エラー数："+ str(ERROR) + "）"
             )
-        
-        print("Complete")
-
+    
     Setup_folder_path_button = tkinter.Button(
         root,
         text="参照",
