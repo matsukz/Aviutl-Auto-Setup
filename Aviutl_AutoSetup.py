@@ -656,6 +656,8 @@ def main():
             else:
                 pass
 
+        print("ERROR Count is " + str(ERROR))
+
         if ERROR == 0 :
             print("Complete")
             tkinter.messagebox.showinfo("Aviutl Auto Setup", "指定されたソフトウェアの構築が終了しました")
