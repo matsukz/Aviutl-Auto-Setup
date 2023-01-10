@@ -537,14 +537,35 @@ def main():
 
                         subwindow.destroy()
 
-                        if os.path.exists(path + "Plugins\\x264guiEx.auo") == True:
-                            print("x264guiEx.auo Check Ok")
+                    MiddleDir = 0
+                    D_StopSignal = 0
+
+                    while D_StopSignal == 0:
+                        M_stopSignal = 0
+                        SerchFile = 0
+
+                        Check_MiddleDir = URL_json["x264guiEx"]["FILE"]["DirPath"][str(MiddleDir)]
+
+                        if not Check_MiddleDir == "END":
+                            while M_stopSignal == 0:
+                                Check_File = URL_json["x264guiEx"]["FILE"][str(MiddleDir)][str(SerchFile)]
+
+                                if not Check_File == "END":
+                                    if os.path.exists(path + Check_MiddleDir + Check_File) == True:
+                                        pass
+                                    else:
+                                        print(Check_File + "NOT FOUND")
+                                        ERROR = ERROR + 1
+                                    
+                                    SerchFile = SerchFile + 1
+                                
+                                else:
+                                    M_stopSignal = 1
+                            
+                            MiddleDir = MiddleDir + 1
+
                         else:
-                            tkinter.messagebox.showerror("ERROR", "x264guiExの取得に失敗しました")
-                            ERROR = ERROR + 1
-                    else:
-                        tkinter.messagebox.showerror("ERROR", "x264guiExのダウンロードに失敗しました")
-                        ERROR = ERROR + 1
+                            D_StopSignal = 1
 
                 elif Encoder_combobox.get() == "かんたんMP4出力":
 
