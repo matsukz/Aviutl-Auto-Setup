@@ -1,10 +1,15 @@
 # 動作環境
 * Windows
-    * Windows10 で制作・検証しました
+    * Windows10 で制作
+    * Windows10でのみ動作検証しました
     * Windows以外では正常に動作しません
-* Python3.x
-
-    * 外部モジュールは使用していません
+* Python3.1x
+    * 利用しているモジュール
+        * [Tkinter](https://docs.python.org/ja/3/library/tkinter.html)
+        * [OS](https://docs.python.org/ja/3/library/os.html)
+        * [Subprocess](https://docs.python.org/ja/3/library/subprocess.html)
+        * [JSON](https://docs.python.org/ja/3/library/json.html)
+        * [glob](https://docs.python.org/ja/3/library/glob.html)
 # 使い方
 1.導入したいソフトウェアとバージョンを選択<br>
 2.`参照`ボタンからフォルダを選択<br>
@@ -103,7 +108,7 @@
 |Setup_folder_path|文字列|なし|`Filedialog`で取得した内容の格納|
 |Setup_folder_path_button|tkinter.Button|ボタン|関数`Select_Setup_folder_path`を実行|
 
-### 実行関数に関する変数
+### 実行関数に関する変数（共通）
 関数`Execute`
 |変数名|型|外観|内容|
 |:---:|:---:|:---:|:---:|
@@ -112,9 +117,22 @@
 |URL_json|文字列|なし|`DownloadLinks.json`からURLを格納|
 |Cache_Check|Yes OR No|なし|`Cache`フォルダの上書き確認|
 |plugins_path|文字列|なし|`Plugins`フォルダのパスを格納|
-|i|数値|なし|ファイル探索で用いるカウンタ|
 |Exceute_button|tkinter.Button|ボタン|関数`Execute`を実行|
 
+### 実行関数に関する変数（L-SMASH）
+|変数名|型|内容|
+|:---:|:---:|:---:|
+|i|数値|ファイル探索で用いるカウンタ|
+
+### 実行関数に関する変数（x264guiEx）
+|変数名|型|内容|
+|:---:|:---:|:---:|
+|MiddleDir|数値|フォルダ連番<br>JSONの内容とリンクしている|
+|D_StopSignal|数値|Whileループの停止条件（１で停止）<br>検索ファイルがあるディレクトリを決めるループ|
+|M_StopSignal|数値|Whileループの停止条件（１で停止）<br>ファイルを検索するループ|
+|SearchFile|数値|検索対象のファイル連番<br>JSONの内容とリンクしている|
+|Check_MiddleDir|文字列|`MiddleDir`に対応したフォルダパスを格納|
+|Check_File|文字列|`SearchFile`に対応したファイルパスを格納|
 
 # 参考
 [【Python】tkinterでファイル&フォルダパス指定画面を作成する](https://qiita.com/dgkmtu/items/2367a73f7e2d498e6075)（閲覧日2022年12月26日）
