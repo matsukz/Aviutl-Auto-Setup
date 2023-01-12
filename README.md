@@ -22,7 +22,7 @@
 * [x264guiEx 3.16](https://rigaya34589.blog.fc2.com/?cat=5)
 * [かんたんMP4出力 2020-04-23](https://aoytsk.blog.jp/aviutl/34586383.html)
   
-`DownloadLinks.json`とセットで利用してください<br>
+`DownloadLink.json`とセットで利用してください<br>
 `応答なし`になっても気にしないでください
 
 # 利用する変数について
