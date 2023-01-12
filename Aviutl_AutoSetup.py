@@ -100,7 +100,7 @@ def main():
 
     AskAgree.destroy()
 
-    if os.path.exists("DownloadLinks.json") == True:
+    if os.path.exists("DownloadLink.json") == True:
         pass
     else:
         tkinter.messagebox.showerror(
@@ -295,13 +295,13 @@ def main():
             else:
                 pass
 
-            URL_json = json.load(open("DownloadLinks.json","r",encoding="utf-8"))
+            URL_json = json.load(open("DownloadLink.json","r",encoding="utf-8"))
 
             if Aviutl_exe_ckb.get() == True:
 
                 subwindow = tkinter.Toplevel()
                 subwindow.title("実行中")
-                subwindow.geometry("300x100")
+                subwindow.geometry("300x100+50+50")
                 subwindow.resizable(0,0)
 
                 Text_subwindow = tkinter.Label(
@@ -352,7 +352,7 @@ def main():
 
                 subwindow = tkinter.Toplevel()
                 subwindow.title("実行中")
-                subwindow.geometry("300x100")
+                subwindow.geometry("300x100+50+50")
                 subwindow.resizable(0,0)
 
                 Text_subwindow = tkinter.Label(
@@ -395,7 +395,8 @@ def main():
                         else:
                             tkinter.messagebox.showerror("ERROR","拡張編集プラグインの取得に失敗しました")
                             ERROR = ERROR + 1
-                            break
+
+                            
                 else:
                     tkinter.messagebox.showerror("ERROR", "拡張編集プラグインのダウンロードに失敗しました")
                     ERROR = ERROR + 1
@@ -407,7 +408,7 @@ def main():
 
                 subwindow = tkinter.Toplevel()
                 subwindow.title("実行中")
-                subwindow.geometry("300x100")
+                subwindow.geometry("300x100+50+50")
                 subwindow.resizable(0,0)
 
                 Text_subwindow = tkinter.Label(
@@ -473,7 +474,7 @@ def main():
 
                     subwindow = tkinter.Toplevel()
                     subwindow.title("実行中")
-                    subwindow.geometry("300x100")
+                    subwindow.geometry("300x100+50+50")
                     subwindow.resizable(0,0)
 
                     Text_subwindow = tkinter.Label(
@@ -554,7 +555,7 @@ def main():
                                     if os.path.exists(path + Check_MiddleDir + Check_File) == True:
                                         pass
                                     else:
-                                        print(Check_File + "NOT FOUND")
+                                        print(Check_File + " Not Found")
                                         ERROR = ERROR + 1
                                     
                                     SerchFile = SerchFile + 1
@@ -571,7 +572,7 @@ def main():
 
                     subwindow = tkinter.Toplevel()
                     subwindow.title("実行中")
-                    subwindow.geometry("300x100")
+                    subwindow.geometry("300x100+50+50")
                     subwindow.resizable(0,0)
 
                     Text_subwindow = tkinter.Label(
